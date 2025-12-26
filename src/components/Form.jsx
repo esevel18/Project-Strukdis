@@ -5,7 +5,7 @@ import { useState } from "react"
 
 // Form akan menerima function untuk add vertex yang bisa digunakan sebagai event handler dari button 
 // add vertex
-export default function Form({ onAddVertex, onVisualize }){
+export default function Form({ onAddVertex, onVisualize, onClear }){
     const [vertexName, setVertexName] = useState("")
 
     return(
@@ -26,6 +26,7 @@ export default function Form({ onAddVertex, onVisualize }){
                 addVertex
             </button>
             <button className="visualizeButton" onClick={onVisualize}>visualize</button>
+            <button className="clearButton" onClick={onClear}>clear</button>
         </div>
     )
 }

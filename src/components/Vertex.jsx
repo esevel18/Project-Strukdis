@@ -16,7 +16,7 @@ export default function Vertex({ id, name, x, y, r, color, onMouseDown }) {
             strokeWidth="2" 
             stroke="2"
             />
-            <text x={x} y={y+4} textAnchor="middle" fontSize="14">
+            <text x={x} y={y+4} textAnchor="middle" fontSize="14" style={{fontWeight : "bolder"}}>
                 {name}
             </text>
             <circle

@@ -31,12 +31,12 @@ export default function Graph(){
 
         // buat vertex sesuai posisi yang kita generate
         const newVertex = {
-            id: vertices.length + 1,
+            id: vertices.length,
             name: vertexName,
             x: position.x,
             y: position.y,
             r: RADIUS,
-            color: "grey"
+            color: "#646464ff"
         }
 
         setVertices([...vertices, newVertex]);
@@ -58,15 +58,16 @@ export default function Graph(){
             x: event.clientX - v.x,
             y: event.clientY - v.y
         });
-    }
+    };
 
     const handleOnMouseUp = () => {
         setDraggingID(null);
-    }
+    };
 
     const handleOnMouseMove = (event) => {
-        setVertices(
-            vertices.map(vertex => {
+        if(draggingID === null) return;
+        setVertices( prev => 
+            prev.map(vertex => {
                 return vertex.id === draggingID ?
                 {
                     ...vertex, // copy semua property dari vertex sebelumnya
@@ -76,7 +77,7 @@ export default function Graph(){
                 } : vertex
             })
         );
-    }
+    };
 
     // welsh powel visualisation
     // 1. buat adj matrix
@@ -89,7 +90,7 @@ export default function Graph(){
             for(let j = i+1; j < adjMatrix.length; j++){ // menghindari sisi ganda, pake i+1 linear check
                 if(adjMatrix[i][j] === 1){
                     buildEdge.push({
-                        id: buildEdge.length + 1,
+                        id: buildEdge.length,
                         uID: vertices[i].id,
                         vID: vertices[j].id
                     });
@@ -99,14 +100,33 @@ export default function Graph(){
         return buildEdge;
     }, [vertices]); 
     
+    const [chromaticNumber, setChromaticNumber] = useState(null);
     const handleOnVisualize = () => {
         const adjMatrix = buildAdjMatrix(vertices, MIN_DISTANCE);
-    }
+        const {colors, chromaticNumber} = welshPowell(adjMatrix);
+
+        // update state warna dari vertex
+        setVertices(prev => // loop ke vertices
+            prev.map(v => { // vertex property sekarang
+                const colored = colors.find(c => c.id === v.id);
+                return colored ? {...v, color: colored.color} : v;
+            })
+        );
+
+        // set chromaticNumber
+        setChromaticNumber(chromaticNumber);
+    };
+
+    // clear button
+    const handleOnClear = () => {
+
+    };
 
     return(
         <div>
             {/* form dengan props function -> {function} artinya pass referensi fungsi */}
             <Form onAddVertex={addVertex} onVisualize={handleOnVisualize}/>
+            <p>ChromaticNumber = {chromaticNumber}</p>
             <svg 
             width={SVG_WIDTH} 
             height={SVG_HEIGHT}
