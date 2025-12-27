@@ -7,8 +7,8 @@ import Edge from "./Edge";
 import buildAdjMatrix from "../algorithm/BuildAdjMatrix";
 import { useMemo } from "react";
 
-const SVG_WIDTH = 921;
-const SVG_HEIGHT = 700;
+const SVG_WIDTH = 900;
+const SVG_HEIGHT = 500;
 const RADIUS = 25;
 const PADDING = 4;
 const MIN_DISTANCE = 200;
@@ -163,7 +163,7 @@ export default function Graph(){
                         {
                             frequencies.map( (f, i) => (
                                 <p key={i}>
-                                    Vertex "{f.name}" : {f.frequency}
+                                    Tower "{f.name}" : {f.frequency}
                                 </p>
                                 )
                             )
@@ -172,8 +172,7 @@ export default function Graph(){
                 </div>
             </div>
 
-            <div className="svgWrapper">
-                <svg 
+            <svg 
                 className="svgPlaygroud"
                 width={SVG_WIDTH} 
                 height={SVG_HEIGHT}
@@ -216,11 +215,11 @@ export default function Graph(){
                             r={v.r} 
                             color={v.color}
                             onMouseDown={handleMouseDown}
+                            draggingID={draggingID}
                             />
                         ))
                     }
-                </svg>
-            </div>
+            </svg>
         </div>
     )
 }

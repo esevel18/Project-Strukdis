@@ -13,10 +13,10 @@ export default function Form({ onAddVertex, onVisualize, onClear }){
             <label className="labelVertex">
                 Vertex: 
                 <input 
-                className="addVertexField"
+                className="inputField"
                 type = "text" 
                 value = {vertexName} // ambil value dari input field
-                placeholder="vertexName"
+                placeholder="vertex name"
                 onChange={(event) => {setVertexName(event.target.value)}} // setiap kali ada perubahan di input field kita rubah juga value dari vertexName
                 />
             </label>

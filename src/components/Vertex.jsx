@@ -4,7 +4,7 @@
 
 import { useState } from "react";
 
-export default function Vertex({ id, name, x, y, r, color, onMouseDown }) {
+export default function Vertex({ id, name, x, y, r, color, onMouseDown, draggingID }) {
     return( // render vertex
         <g>
             <circle 
@@ -29,7 +29,9 @@ export default function Vertex({ id, name, x, y, r, color, onMouseDown }) {
             stroke="2"
             opacity={0.2}
             onMouseDown={(event) => onMouseDown(event, id)}
-            style={{cursor : "grab"}}>
+            style={{
+                cursor : draggingID === id ? "grabbing": "grab"
+            }}>
             </circle>
         </g>
     )

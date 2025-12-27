@@ -1,0 +1,164 @@
+:root{
+    font-family: monospace;
+    padding: 5px;
+
+    --bg-main: #f9fafb;
+    --panel-bg: #ffffff;
+    --svg-bg: #f1f5f9;
+
+    --border-soft: #e5e7eb;
+
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+
+    --border-button: #8b8b8b;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;      
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #747980;       
+    border-radius: 10px;
+    border: 2px solid #f1f5f9; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #585e66;
+}
+
+body{
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+}
+
+h1{
+    padding: 10px;
+}
+
+.graphwrapper{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    width: 100%;
+    padding-right: 16px;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.info{
+    width: 300px;              
+    min-height: 500px;
+    padding: 16px;
+
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-soft);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chromaticNumberDisplay{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.frequencyAssignmentWrapper{
+    font-size: 14px;
+}
+
+.frequenciesTitle{
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.svgPlaygroud{
+    width: 1000px;
+    height: 500px;
+
+    background-color: var(--svg-bg);
+    border: 2px solid var(--border-soft);
+    border-radius: 10px;
+}
+
+.labelVertex{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputField{
+    min-height: 30px;
+
+    border-radius: 10px;
+    border: 2px solid var(--border-soft);
+}
+
+.addVertexButton{
+    min-height: 30px;
+
+    border-radius: 10px;
+    border: 2px var(--border-button);
+}
+
+.addVertexButton:hover{
+    background-color: #94979e;
+    cursor:pointer;
+    transform: scale(1.05);
+}
+
+.addVertexButton:active{
+    background-color: #7f8084;
+    transform: scale(0.97);
+}
+
+.visualizeButton{
+    min-height: 30px;
+
+    border-radius: 10px;
+    border: 2px var(--border-button);
+}
+
+.visualizeButton:hover{
+    background-color: #94979e;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.visualizeButton:active{
+    background-color: #7f8084;
+    transform: scale(0.90);
+}
+
+.clearButton{
+    min-height: 30px;
+
+    border-radius: 10px;
+    border: 2px var(--border-button);
+}
+
+.clearButton:hover{
+    background-color: #94979e;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.clearButton:active{
+    background-color: #7f8084;
+    transform: scale(0.90);
+}
