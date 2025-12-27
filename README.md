@@ -7,6 +7,7 @@
 ## Cara Menjalankan Aplikasi
 Alamat web bisa langsung diakses pada link berikut:
 https://esevel18.github.io/Project-Strukdis/
+*Sangat Direkomendasikan untuk menggunakan komputer/laptop dalam mengakses link di atas, karena web tidak responsif untuk mobile*
 
 Atau cara lain adalah dengan menjalankan program di komputer lokal, berikut langkah-langkahnya:
 1. Pastikan `npm` dan `node.js` sudah terinstall pada komputer lokal anda
