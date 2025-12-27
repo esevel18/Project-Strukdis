@@ -9,10 +9,11 @@ export default function Form({ onAddVertex, onVisualize, onClear }){
     const [vertexName, setVertexName] = useState("")
 
     return(
-        <div>
-            <label>
+        <>
+            <label className="labelVertex">
                 Vertex: 
                 <input 
+                className="addVertexField"
                 type = "text" 
                 value = {vertexName} // ambil value dari input field
                 placeholder="vertexName"
@@ -23,10 +24,10 @@ export default function Form({ onAddVertex, onVisualize, onClear }){
                 onAddVertex(vertexName);
                 setVertexName("");
             }}>
-                addVertex
+                add vertex
             </button>
             <button className="visualizeButton" onClick={onVisualize}>visualize</button>
             <button className="clearButton" onClick={onClear}>clear</button>
-        </div>
+        </>
     )
 }

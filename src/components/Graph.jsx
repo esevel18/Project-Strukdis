@@ -7,8 +7,8 @@ import Edge from "./Edge";
 import buildAdjMatrix from "../algorithm/BuildAdjMatrix";
 import { useMemo } from "react";
 
-const SVG_WIDTH = 600;
-const SVG_HEIGHT = 500;
+const SVG_WIDTH = 921;
+const SVG_HEIGHT = 700;
 const RADIUS = 25;
 const PADDING = 4;
 const MIN_DISTANCE = 200;
@@ -101,6 +101,17 @@ export default function Graph(){
     }, [vertices]); 
     
     const [chromaticNumber, setChromaticNumber] = useState(null);
+    const [frequencies, setFrequencies] = useState([]);
+    const COLOR_CORRESPODENCE_WITH_FREQUENCIES = {
+        "#c4b5a9ff" : "90Hz",
+        "#6af104ff" : "90.2Hz",
+        "#192cc0ff" : "90.4Hz",
+        "#30750bff" : "90.6Hz",
+        "#bc176fff" : "90.8Hz",
+        "#06825bff" : "91Hz",
+        "#c9b1deff" : "91.2Hz"
+    }
+
     const handleOnVisualize = () => {
         const adjMatrix = buildAdjMatrix(vertices, MIN_DISTANCE);
         const {colors, chromaticNumber} = welshPowell(adjMatrix);
@@ -115,63 +126,101 @@ export default function Graph(){
 
         // set chromaticNumber
         setChromaticNumber(chromaticNumber);
+
+        // set frequencies
+        setFrequencies(
+            vertices.map( v => {
+                // find vertex di colors dengan id yang sama dengan v
+                const c = colors.find(u => u.id === v.id);
+                return{
+                    id: c.id,
+                    name: v.name,
+                    color: c.color,
+                    frequency: COLOR_CORRESPODENCE_WITH_FREQUENCIES[c.color]
+                }
+            })
+        );
     };
 
     // clear button
     const handleOnClear = () => {
-
+        setVertices([]);
+        setChromaticNumber(0);
+        setFrequencies([]);
     };
 
     return(
-        <div>
+        <div className="graphwrapper">
             {/* form dengan props function -> {function} artinya pass referensi fungsi */}
-            <Form onAddVertex={addVertex} onVisualize={handleOnVisualize}/>
-            <p>ChromaticNumber = {chromaticNumber}</p>
-            <svg 
-            width={SVG_WIDTH} 
-            height={SVG_HEIGHT}
-            onMouseUp={handleOnMouseUp}
-            onMouseMove={handleOnMouseMove}>
-                {/* {....} di html artinya masuk ke mode js dan tambahkan .... secara dynamic */}
-                {/* keluarkan semua isi dari edges ke svg */}
-                {
-                    edges.map(
-                        (edge) => { // untuk setiap edge di edges
-                            // temukan vertex u
-                            const u = vertices.find(u => u.id === edge.uID);
-                            // temukan vertex v
-                            const v = vertices.find(v => v.id === edge.vID);
-                            if (!u || !v) return null;
-
-                            return (
-                                <Edge
-                                    key={edge.id}
-                                    x1={u.x}
-                                    y1={u.y}
-                                    x2={v.x}
-                                    y2={v.y}
-                                />
-                            );
+            <div className="info">
+                <div className="formWrapper">
+                    <Form onAddVertex={addVertex} onVisualize={handleOnVisualize} onClear={handleOnClear}/>
+                </div>
+                <div className="chromaticFreqWrapper">
+                    <p className="chromaticNumberDisplay">ChromaticNumber = {chromaticNumber ?? 0}</p>
+                    <div className="frequencyAssignmentWrapper">
+                        <p className="frequenciesTitle">Frequncies Assignment</p>
+                        {
+                            frequencies.map( (f, i) => (
+                                <p key={i}>
+                                    Vertex "{f.name}" : {f.frequency}
+                                </p>
+                                )
+                            )
                         }
-                    )
-                }
-                {/* keluarkan semua isi dari vertices ke svg */}
-                {
-                    vertices.map(
-                        (v, i) => (
-                        <Vertex 
-                        key={i} 
-                        id={v.id}
-                        name={v.name} 
-                        x={v.x} 
-                        y={v.y} 
-                        r={v.r} 
-                        color={v.color}
-                        onMouseDown={handleMouseDown}
-                        />
-                    ))
-                }
-            </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div className="svgWrapper">
+                <svg 
+                className="svgPlaygroud"
+                width={SVG_WIDTH} 
+                height={SVG_HEIGHT}
+                onMouseUp={handleOnMouseUp}
+                onMouseMove={handleOnMouseMove}>
+                    {/* {....} di html artinya masuk ke mode js dan tambahkan .... secara dynamic */}
+                    {/* keluarkan semua isi dari edges ke svg */}
+                    {
+                        edges.map(
+                            (edge) => { // untuk setiap edge di edges
+                                // temukan vertex u di vertices
+                                const u = vertices.find(u => u.id === edge.uID);
+                                // temukan vertex v di vertices
+                                const v = vertices.find(v => v.id === edge.vID);
+                                if (!u || !v) return null;
+
+                                return (
+                                    <Edge
+                                        key={edge.id}
+                                        id={edge.is}
+                                        x1={u.x}
+                                        y1={u.y}
+                                        x2={v.x}
+                                        y2={v.y}
+                                    />
+                                );
+                            }
+                        )
+                    }
+                    {/* keluarkan semua isi dari vertices ke svg */}
+                    {
+                        vertices.map(
+                            (v, i) => (
+                            <Vertex 
+                            key={i} 
+                            id={v.id}
+                            name={v.name} 
+                            x={v.x} 
+                            y={v.y} 
+                            r={v.r} 
+                            color={v.color}
+                            onMouseDown={handleMouseDown}
+                            />
+                        ))
+                    }
+                </svg>
+            </div>
         </div>
     )
 }
