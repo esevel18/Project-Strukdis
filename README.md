@@ -6,14 +6,14 @@
 
 ## Cara Menjalankan Aplikasi
 Alamat web bisa langsung diakses pada link berikut:
-`https://esevel18.github.io/Project-Strukdis/`
+https://esevel18.github.io/Project-Strukdis/
 
 Atau cara lain adalah dengan menjalankan program di komputer lokal, berikut langkah-langkahnya:
 1. Pastikan `npm` dan `node.js` sudah terinstall pada komputer lokal anda
 2. Download file zip dari project ini
 3. Ekstrak file zip
 4. Buka command prompt pada komputer anda, lalu lakukan navigasi pada file project yang sudah di ekstrak sebelumnya contoh: (../Downloads/Project-Strukdis-main)
-5. Ketik `npm run dev` pada command promopt
+5. Ketik `npm run dev` pada command prompt
 6. Tunggu beberapa detik, maka akan terbuka sebuah alamat local host biasanya (`http://localhost:5173/`)
 7. Klik (ctrl+klik) pada alamat tersebut, anda akan langsung diarahkan pada laman web
 
@@ -21,7 +21,7 @@ Atau cara lain adalah dengan menjalankan program di komputer lokal, berikut lang
 Pada aplikasi ini teknologi yang digunakan adalah `HTML`, `CSS`, dan `Javascript` dengan framework yang digunakan adalah `React + Vite`
 
 ## Penjelasan Fitur
-1. Input field tower name untuk memasukkan nama dari tower) yang diinginkan dicek
+1. Input field tower name untuk memasukkan nama dari tower yang diinginkan untuk dicek intervesinya
 2. Tombol add tower untuk menambahkan vertex(tower) kedalam canvas disebelah kanan
 3. Akan ada radiasi pancaran warna biru disekitar vertex yang menandakan jangkauan radiasi pancaran dari tower
 4. Setiap ada pancaran radiasi yang saling overlapping antara vertexnya, vertex-vertex tersebut akan secara otomatis membentuk sisi(edge) satu sama lainnya
