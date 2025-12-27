@@ -88,9 +88,15 @@ h1{
     margin-bottom: 6px;
 }
 
+.containerSvg{
+    width: 100vw;
+    height: 75vh;
+}
+
 .svgPlaygroud{
-    width: 1000px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    display: block;
 
     background-color: var(--svg-bg);
     border: 2px solid var(--border-soft);

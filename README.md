@@ -3,6 +3,7 @@
 ## Limitasi
 1. Pada program ini kami mengasumsikan bahwa 1px di dalam web setara dengan 1km di dunia nyata
 2. Kita mengasumsikan jangkauan radiasi sinyal dari setiap tower itu sama dan konstan, yaitu sebesar 200Km  luas lingkaran untuk setiap tower yang ada
+3. Warna yang digunakan dalam program ini hanyalah 12 warna berbeda, artinya lebih dari itu tower akan mengalami bug warna
 
 ## Cara Menjalankan Aplikasi
 Alamat web bisa langsung diakses pada link berikut:

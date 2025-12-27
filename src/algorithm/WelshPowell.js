@@ -5,7 +5,12 @@ const COLOR_PALATTE = [
     "#30750bff",
     "#bc176fff",
     "#06825bff",
-    "#c9b1deff"
+    "#a58bbbff",
+    "#d45bf5ff",
+    "#ffff",
+    "#727a06ff",
+    "#fc70b1ff",
+    "#234703ff"
 ];
 
 export default function welshPowell(adjMatrix){
