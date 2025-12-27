@@ -11,12 +11,12 @@ export default function Form({ onAddVertex, onVisualize, onClear }){
     return(
         <>
             <label className="labelVertex">
-                Vertex: 
+                Masukkan Nama Tower: 
                 <input 
                 className="inputField"
                 type = "text" 
                 value = {vertexName} // ambil value dari input field
-                placeholder="vertex name"
+                placeholder="nama tower"
                 onChange={(event) => {setVertexName(event.target.value)}} // setiap kali ada perubahan di input field kita rubah juga value dari vertexName
                 />
             </label>
@@ -24,7 +24,7 @@ export default function Form({ onAddVertex, onVisualize, onClear }){
                 onAddVertex(vertexName);
                 setVertexName("");
             }}>
-                add vertex
+                add tower
             </button>
             <button className="visualizeButton" onClick={onVisualize}>visualize</button>
             <button className="clearButton" onClick={onClear}>clear</button>

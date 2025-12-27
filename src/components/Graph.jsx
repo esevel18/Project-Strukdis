@@ -159,7 +159,7 @@ export default function Graph(){
                 <div className="chromaticFreqWrapper">
                     <p className="chromaticNumberDisplay">ChromaticNumber = {chromaticNumber ?? 0}</p>
                     <div className="frequencyAssignmentWrapper">
-                        <p className="frequenciesTitle">Frequncies Assignment</p>
+                        <p className="frequenciesTitle">Frequencies Assignment</p>
                         {
                             frequencies.map( (f, i) => (
                                 <p key={i}>

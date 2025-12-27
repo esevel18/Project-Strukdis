@@ -1,16 +1,33 @@
-# React + Vite
+# Pengaplikasian Graph Coloring pada Frekuensi Radio Tower yang Berdekatan untuk Mengurangi Intervensi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Limitasi
+1. Pada program ini kami mengasumsikan bahwa 1px di dalam web setara dengan 1km di dunia nyata
+2. Kita mengasumsikan jangkauan radiasi sinyal dari setiap tower itu sama dan konstan, yaitu sebesar 200Km  luas lingkaran untuk setiap tower yang ada
 
-Currently, two official plugins are available:
+## Cara Menjalankan Aplikasi
+Alamat web bisa langsung diakses pada link berikut:
+`https://esevel18.github.io/Project-Strukdis/`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Atau cara lain adalah dengan menjalankan program di komputer lokal, berikut langkah-langkahnya:
+1. Pastikan `npm` dan `node.js` sudah terinstall pada komputer lokal anda
+2. Download file zip dari project ini
+3. Ekstrak file zip
+4. Buka command prompt pada komputer anda, lalu lakukan navigasi pada file project yang sudah di ekstrak sebelumnya contoh: (../Downloads/Project-Strukdis-main)
+5. Ketik `npm run dev` pada command promopt
+6. Tunggu beberapa detik, maka akan terbuka sebuah alamat local host biasanya (`http://localhost:5173/`)
+7. Klik (ctrl+klik) pada alamat tersebut, anda akan langsung diarahkan pada laman web
 
-## React Compiler
+## Teknologi yang digunakan
+Pada aplikasi ini teknologi yang digunakan adalah `HTML`, `CSS`, dan `Javascript` dengan framework yang digunakan adalah `React + Vite`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Penjelasan Fitur
+1. Input field tower name untuk memasukkan nama dari tower) yang diinginkan dicek
+2. Tombol add tower untuk menambahkan vertex(tower) kedalam canvas disebelah kanan
+3. Akan ada radiasi pancaran warna biru disekitar vertex yang menandakan jangkauan radiasi pancaran dari tower
+4. Setiap ada pancaran radiasi yang saling overlapping antara vertexnya, vertex-vertex tersebut akan secara otomatis membentuk sisi(edge) satu sama lainnya
+5. Vertex(tower) bisa di-drag sesuai kemauan selama masih ada di dalam canvas
+6. Tombol visualize digunakan untuk menjalankan algoritma graph coloring dari welsh powell
+7. Tombol clear digunakan untuk mereset semua pekerjaan 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Screenshoot Tampilan
+![Screenshot](</public/ScreenshootWeb.png>)
